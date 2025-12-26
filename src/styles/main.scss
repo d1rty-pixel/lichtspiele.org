@@ -1,0 +1,7 @@
+@import "./bootstrap-vars";
+
+// Bootstrap komplett (inkl. utilities etc.)
+@import "bootstrap/scss/bootstrap";
+
+// Deine bisherigen CSS Tokens/Theme Styles (aus globals.css) hier reinziehen:
+@import "./site";

@@ -1,0 +1,20 @@
+// Beispiel-Overrides
+$font-family-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+$border-radius: 1rem;
+$border-radius-lg: 1.25rem;
+$border-radius-xl: 1.5rem;
+
+$container-max-widths: (
+        sm: 540px,
+        md: 720px,
+        lg: 960px,
+        xl: 1120px,
+        xxl: 1120px
+);
+
+// Farben (Bootstrap Theme Farben)
+$primary: #7abeff;
+$secondary: #6c757d;
+
+// Optional: weniger aggressive Shadows
+$box-shadow: 0 12px 40px rgba(0,0,0,.25);
