@@ -28,6 +28,7 @@ export function ThemeMenu() {
                             className={"dropdown-item" + (ctx.theme === t.id ? " active" : "")}
                             onClick={() => ctx.setTheme(t.id)}
                         >
+                            <i className={t.iconClass + " me-2"} aria-hidden="true" />
                             {t.label}
                         </button>
                     </li>

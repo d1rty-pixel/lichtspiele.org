@@ -1,0 +1,25 @@
+html[data-theme="ink"]{
+  color-scheme: dark;
+
+  --bs-body-bg:#050608;
+  --bs-body-color: rgba(255,255,255,.90);
+  --bs-secondary-color: rgba(255,255,255,.60);
+  --bs-border-color: rgba(255,255,255,.14);
+
+  --ls-panel: rgba(12, 12, 14, .82);
+  --ls-panel-2: rgba(8, 8, 10, .90);
+
+  --ls-shadow: 0 18px 56px rgba(0,0,0,.75);
+  --bs-box-shadow: var(--ls-shadow);
+  --bs-box-shadow-lg: var(--ls-shadow);
+
+  /* FX: sehr reduziert, “printy” */
+  --ls-fx-opacity:.40;
+  --ls-fx-blur:20px;
+  --ls-fx-composite: multiply;
+
+  --ls-fx-c1: rgba(255,255,255,0.18);
+  --ls-fx-c2: rgba(120,180,255,0.14);
+  --ls-fx-c3: rgba(255,255,255,0.10);
+  --ls-fx-c4: rgba(255,255,255,0.06);
+}

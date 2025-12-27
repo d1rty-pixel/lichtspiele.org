@@ -8,9 +8,6 @@ export const metadata: Metadata = {
 export default function ImpressumPage() {
     return (
         <>
-        <Navigation/>
-
-        <main className="container container-max px-3 px-md-4 py-4 py-md-5">
             <h1>Impressum</h1>
 
             <p>
@@ -27,7 +24,6 @@ export default function ImpressumPage() {
             <p>
                 E-Mail: legal@lichtspiele.org
             </p>
-        </main>
         </>
     );
 }

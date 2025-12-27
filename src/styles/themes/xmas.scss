@@ -1,0 +1,60 @@
+html[data-theme="xmas"]{
+  color-scheme: dark;
+
+  --bs-body-bg:#070b12;
+  --bs-body-color: rgba(255,255,255,.92);
+  --bs-secondary-color: rgba(255,255,255,.68);
+  --bs-border-color: rgba(255,255,255,.12);
+
+  --ls-panel: rgba(16, 22, 34, .60);
+  --ls-panel-2: rgba(10, 14, 24, .74);
+
+  --ls-shadow: 0 16px 48px rgba(0,0,0,.55);
+  --bs-box-shadow: var(--ls-shadow);
+  --bs-box-shadow-lg: var(--ls-shadow);
+
+  /* FX: Schnee-Nacht, klare Differenz zu dark */
+  --ls-fx-opacity: .85;
+  --ls-fx-blur: 30px;
+  --ls-fx-composite: multiply;
+
+  /* Schnee + warme Lichter (bitte NICHT vollgesättigt, sonst wird’s “Comic”) */
+  --ls-fx-c1: rgba(120, 170, 255, 0.28); /* icy */
+  --ls-fx-c2: rgba(120, 255, 230, 0.16); /* frost */
+  --ls-fx-c3: rgba(40, 180, 110, 0.14);  /* pine */
+  --ls-fx-c4: rgba(255, 180, 110, 0.20); /* warm lights */
+}
+
+/* XMas: grain/vignette etwas “wintry” */
+html[data-theme="xmas"] .grain{
+  opacity:.72;
+  background:
+          radial-gradient(1100px 650px at 50% 16%, rgba(0,0,0,.10), transparent 55%),
+          radial-gradient(900px 750px at 50% 92%, rgba(0,0,0,.42), transparent 62%),
+          linear-gradient(to bottom, rgba(0,0,0,.28), rgba(0,0,0,.12));
+}
+
+/* XMas: Schnee einschalten */
+html[data-theme="xmas"] .snow-canvas{
+  display: block;
+  opacity: .75; /* eher subtil, sonst “weißes Rauschen” */
+}
+
+/* XMas: leicht frosted glass */
+html[data-theme="xmas"] .glass,
+html[data-theme="xmas"] .glass-2{
+  backdrop-filter: blur(12px) saturate(1.05);
+  -webkit-backdrop-filter: blur(12px) saturate(1.05);
+}
+
+/* optional: “ice rim” */
+html[data-theme="xmas"] .glass{
+  box-shadow:
+          0 0 0 1px rgba(160,210,255,.08) inset,
+          var(--bs-box-shadow);
+}
+html[data-theme="xmas"] .glass-2{
+  box-shadow:
+          0 0 0 1px rgba(160,210,255,.07) inset,
+          var(--bs-box-shadow);
+}

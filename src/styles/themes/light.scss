@@ -1,0 +1,32 @@
+html[data-theme="light"]{
+  color-scheme: light;
+
+  --bs-body-bg:#f7f7fb;
+  --bs-body-color: rgba(10,14,25,.92);
+  --bs-secondary-color: rgba(10,14,25,.66);
+  --bs-border-color: rgba(10,14,25,.10);
+
+  --ls-panel: rgba(255,255,255,.78);
+  --ls-panel-2: rgba(255,255,255,.88);
+
+  --ls-shadow: 0 12px 40px rgba(10,14,25,.12);
+  --bs-box-shadow: var(--ls-shadow);
+  --bs-box-shadow-lg: var(--ls-shadow);
+
+  /* FX: subtil */
+  --ls-fx-opacity:.62;
+  --ls-fx-blur:22px;
+  --ls-fx-composite: screen;
+
+  --ls-fx-c1: rgba(120, 170, 255, 0.38);
+  --ls-fx-c2: rgba(255, 170, 120, 0.30);
+  --ls-fx-c3: rgba(170, 130, 255, 0.26);
+  --ls-fx-c4: rgba(120, 240, 210, 0.20);
+}
+
+html[data-theme="light"] .grain{
+  opacity:.25;
+  background:
+          radial-gradient(1200px 700px at 50% 20%, rgba(10,14,25,.10), transparent 55%),
+          radial-gradient(900px 700px at 50% 90%, rgba(10,14,25,.10), transparent 60%);
+}

@@ -8,15 +8,15 @@ export default function OSInit() {
         const el = document.getElementById("scrollRoot");
         if (!el) return;
 
-        const inst = OverlayScrollbars(el, {
+        const os = OverlayScrollbars(el, {
             scrollbars: {
-                theme: "os-theme-dark",
                 autoHide: "leave",
-                autoHideDelay: 600,
             },
         });
 
-        return () => inst?.destroy();
+        return () => {
+            os?.destroy();
+        };
     }, []);
 
     return null;

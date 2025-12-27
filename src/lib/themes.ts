@@ -1,18 +1,18 @@
-export type ThemeId = "studio" | "neon" | "aurora" | "paper" | "mono";
+export type ThemeId = "dark" | "light" | "ink" | "xmas";
 
 export type ThemeDef = {
     id: ThemeId;
     label: string;
     bsTheme: "dark" | "light";
+    iconClass: string;
 };
 
 export const THEMES: ThemeDef[] = [
-    { id: "studio", label: "Studio", bsTheme: "dark" },
-    { id: "neon", label: "Neon", bsTheme: "dark" },
-    { id: "aurora", label: "Aurora", bsTheme: "dark" },
-    { id: "paper", label: "Paper", bsTheme: "light" },
-    { id: "mono", label: "Mono", bsTheme: "dark" },
+    { id: "dark", label: "Dark", bsTheme: "dark", iconClass: "fa-solid fa-moon" },
+    { id: "light", label: "Light", bsTheme: "light", iconClass: "fa-solid fa-sun" },
+    { id: "ink", label: "Ink", bsTheme: "dark", iconClass: "fa-solid fa-droplet" },
+    { id: "xmas", label: "X-Mas", bsTheme: "dark", iconClass: "fa-solid fa-snowflake" },
 ];
 
-export const DEFAULT_THEME: ThemeId = "studio";
+export const DEFAULT_THEME: ThemeId = "dark";
 export const THEME_STORAGE_KEY = "lichtspiele.theme";

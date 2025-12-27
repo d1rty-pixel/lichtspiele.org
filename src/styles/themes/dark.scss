@@ -1,0 +1,25 @@
+html[data-theme="dark"]{
+  color-scheme: dark;
+
+  --bs-body-bg:#0c0f16;
+  --bs-body-color: rgba(255,255,255,.92);
+  --bs-secondary-color: rgba(255,255,255,.65);
+  --bs-border-color: rgba(255,255,255,.10);
+
+  --ls-panel: rgba(22, 26, 38, .62);
+  --ls-panel-2: rgba(16, 20, 30, .74);
+
+  --ls-shadow: 0 14px 44px rgba(0,0,0,.50);
+  --bs-box-shadow: var(--ls-shadow);
+  --bs-box-shadow-lg: var(--ls-shadow);
+
+  /* FX: dezent, neutral */
+  --ls-fx-opacity:.75;
+  --ls-fx-blur:22px;
+  --ls-fx-composite: screen;
+
+  --ls-fx-c1: rgba(120, 150, 255, 0.28);
+  --ls-fx-c2: rgba(160, 120, 255, 0.22);
+  --ls-fx-c3: rgba(120, 220, 200, 0.18);
+  --ls-fx-c4: rgba(255, 200, 140, 0.12);
+}

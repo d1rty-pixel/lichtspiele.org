@@ -1,7 +1,10 @@
-@import "./bootstrap-vars";
+@import "@fortawesome/fontawesome-free/css/all.min.css";
 
-// Bootstrap komplett (inkl. utilities etc.)
+@import "./bootstrap-vars";
 @import "bootstrap/scss/bootstrap";
 
-// Deine bisherigen CSS Tokens/Theme Styles (aus globals.css) hier reinziehen:
 @import "./site";
+@import "./themes/dark";
+@import "./themes/ink";
+@import "./themes/light";
+@import "./themes/xmas";
