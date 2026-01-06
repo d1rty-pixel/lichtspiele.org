@@ -1,4 +1,4 @@
-export type ThemeId = "dark" | "light" | "ink" | "xmas";
+export type ThemeId = "dark" | "light" | "ink" | "xmas" | "dune";
 
 export type ThemeDef = {
     id: ThemeId;
@@ -12,6 +12,7 @@ export const THEMES: ThemeDef[] = [
     { id: "light", label: "Light", bsTheme: "light", iconClass: "fa-solid fa-sun" },
     { id: "ink", label: "Ink", bsTheme: "dark", iconClass: "fa-solid fa-droplet" },
     { id: "xmas", label: "X-Mas", bsTheme: "dark", iconClass: "fa-solid fa-snowflake" },
+    { id: "dune", label: "Dune", bsTheme: "light", iconClass: "fa-solid fa-dungeon" },
 ];
 
 export const DEFAULT_THEME: ThemeId = "dark";

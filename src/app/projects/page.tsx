@@ -6,7 +6,7 @@ export default function ProjectsPage() {
     const projects = getAllProjects();
 
     return (
-        <main className="container container-max px-3 px-md-4 py-4 py-md-5">
+        <>
             <div className="d-flex align-items-end justify-content-between flex-wrap gap-2 mb-3">
                 <div>
                     <h1 className="h3 mb-1">Projekte</h1>
@@ -30,6 +30,6 @@ export default function ProjectsPage() {
                     </div>
                 ))}
             </div>
-        </main>
+        </>
     );
 }

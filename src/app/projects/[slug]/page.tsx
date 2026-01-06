@@ -4,10 +4,9 @@ import matter from "gray-matter";
 import { notFound } from "next/navigation";
 import { compileMDX } from "next-mdx-remote/rsc";
 
-// optional: wenn du MDX-Components hast
 import { useMDXComponents } from "@/mdx-components";
 
-export const runtime = "nodejs"; // stellt sicher: fs läuft nicht in edge
+export const runtime = "nodejs";
 
 const DIR = path.join(process.cwd(), "src", "content", "projects");
 
@@ -16,9 +15,7 @@ export async function generateStaticParams() {
     return files.map((f) => ({ slug: f.replace(/\.mdx$/, "") }));
 }
 
-export default async function ProjectPage({
-                                              params,
-                                          }: {
+export default async function ProjectPage({params}: {
     params: Promise<{ slug: string }>;
 }) {
     const { slug } = await params;

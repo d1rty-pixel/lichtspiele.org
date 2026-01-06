@@ -1,18 +1,18 @@
 import {ThemeMenu} from "@/components/ThemeMenu";
 
 export function Navigation() {
+
     return (
         <nav
-            className="navbar navbar-expand-lg sticky-top"
+            className="navbar navbar-expand-lg fixed-top"
             style={{
-                borderBottom: "1px solid var(--line)",
-                background: "color-mix(in srgb, var(--panel2) 65%, transparent)",
                 backdropFilter: "blur(10px)",
             }}
         >
             <div className="container container-max py-2">
-                <a className="navbar-brand fw-bold" href="#">
-                    lichtspiele<span className="opacity-50">.org</span>
+                <a className="navbar-brand fw-bold ls-navbar-brand" href="/">
+                    <span className="ls-brand-word" data-text="lichtspiele">lichtspiele</span>
+                    <span className="opacity-50">.org</span>
                 </a>
 
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
@@ -22,9 +22,9 @@ export function Navigation() {
                 <div id="nav" className="collapse navbar-collapse">
                     <ul className="navbar-nav ms-auto gap-1 align-items-lg-center">
                         <li className="nav-item"><a className="nav-link active" href="/">Home</a></li>
-                        <li className="nav-item"><a className="nav-link" href="/projects">Projekte</a></li>
-                        <li className="nav-item"><a className="nav-link" href="#">Musik</a></li>
-                        <li className="nav-item"><a className="nav-link" href="#">Dev</a></li>
+                        <li className="nav-item"><a className="nav-link active" href="/projects">Projekte</a></li>
+                        <li className="nav-item"><a className="nav-link" href="/about">Me, Myself & I</a></li>
+
                         <li className="nav-item ms-lg-2"><ThemeMenu/></li>
                     </ul>
                 </div>

@@ -1,0 +1,138 @@
+/* navbar-brand.scss — Idea 3: “Breathing glow” + stronger flicker
+   - Halo uses Bootstrap primary as base, gently tinted by --ls-fx-c1..c4
+   - ".org" stays plain
+*/
+
+.ls-navbar-brand {
+  text-decoration: none;
+
+  /* Theme palette (fallbacks slightly stronger than original alphas) */
+  --ls-g1: var(--ls-fx-c1, rgba(120, 150, 255, 0.70));
+  --ls-g2: var(--ls-fx-c2, rgba(160, 120, 255, 0.65));
+  --ls-g3: var(--ls-fx-c3, rgba(120, 220, 200, 0.60));
+  --ls-g4: var(--ls-fx-c4, rgba(255, 200, 140, 0.55));
+
+  /* Bootstrap primary as the “identity”, tinted by your FX palette */
+  --ls-primary: var(--bs-primary, rgba(120, 150, 255, 1));
+  --ls-fx-tint: color-mix(in oklab, var(--ls-g1) 30%, var(--ls-g2) 25%, var(--ls-g3) 25%, var(--ls-g4) 20%);
+  --ls-glow-tint: color-mix(in oklab, var(--ls-primary) 72%, var(--ls-fx-tint) 28%);
+
+  /* Strength knobs */
+  --ls-glow-blur-a: 10px;
+  --ls-glow-blur-b: 18px;
+  --ls-glow-spread-a: 28px;
+  --ls-glow-spread-b: 62px;
+}
+
+/* Dark gets more power automatically */
+html[data-bs-theme="dark"] .ls-navbar-brand {
+  --ls-glow-blur-a: 14px;
+  --ls-glow-blur-b: 26px;
+  --ls-glow-spread-a: 40px;
+  --ls-glow-spread-b: 92px;
+}
+
+.ls-navbar-brand .ls-brand-word {
+  position: relative;
+  display: inline-block;
+  color: var(--bs-body-color); /* readability */
+}
+
+/* Main glow layer behind text */
+.ls-navbar-brand .ls-brand-word::before {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+
+  mix-blend-mode: screen;
+  opacity: 0.95;
+
+  color: var(--ls-glow-tint);
+  filter: blur(var(--ls-glow-blur-a)) saturate(2.4) brightness(1.5);
+
+  animation: lsBreath 5.8s ease-in-out infinite, lsFlicker 6.2s steps(1, end) infinite;
+  will-change: filter, opacity, transform, text-shadow;
+}
+
+/* Secondary halo for depth */
+.ls-navbar-brand .ls-brand-word::after {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+
+  mix-blend-mode: screen;
+  opacity: 0.75;
+  color: var(--ls-glow-tint);
+
+  filter: blur(var(--ls-glow-blur-b)) saturate(2.0) brightness(1.25);
+  animation: lsBreathWide 7.6s ease-in-out infinite reverse;
+  will-change: filter, opacity, transform;
+}
+
+/* Breathing = slow intensity wave */
+@keyframes lsBreath {
+  0% {
+    opacity: 0.68;
+    transform: translate(0, 0);
+    filter: blur(var(--ls-glow-blur-a)) saturate(2.1) brightness(1.20);
+    text-shadow:
+            0 0 0 transparent,
+            0 0 var(--ls-glow-spread-a) var(--ls-glow-tint);
+  }
+  50% {
+    opacity: 1.00;
+    transform: translate(0.5px, -0.4px);
+    filter: blur(calc(var(--ls-glow-blur-a) + 2px)) saturate(2.9) brightness(1.95);
+    text-shadow:
+            0 0 2px var(--ls-glow-tint),
+            0 0 var(--ls-glow-spread-b) var(--ls-glow-tint);
+  }
+  100% {
+    opacity: 0.68;
+    transform: translate(0, 0);
+    filter: blur(var(--ls-glow-blur-a)) saturate(2.1) brightness(1.20);
+    text-shadow:
+            0 0 0 transparent,
+            0 0 var(--ls-glow-spread-a) var(--ls-glow-tint);
+  }
+}
+
+@keyframes lsBreathWide {
+  0%   { opacity: 0.55; transform: translate(0, 0); }
+  50%  { opacity: 0.92; transform: translate(-0.7px, 0.6px); }
+  100% { opacity: 0.55; transform: translate(0, 0); }
+}
+
+/* Stronger flicker: rare deeper dips + a few quick jitters */
+@keyframes lsFlicker {
+  0%, 100% { opacity: 0.96; }
+
+  /* tiny jitter peaks */
+  10% { opacity: 0.90; }
+  11% { opacity: 0.98; }
+
+  33% { opacity: 0.88; }
+  34% { opacity: 0.97; }
+
+  62% { opacity: 0.89; }
+  63% { opacity: 0.98; }
+
+  /* rarer deeper dip (noticeable) */
+  79% { opacity: 0.65; }
+  80% { opacity: 0.93; }
+  81% { opacity: 0.98; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ls-navbar-brand .ls-brand-word::before,
+  .ls-navbar-brand .ls-brand-word::after {
+    animation: none;
+    filter: none;
+    opacity: 0;
+    text-shadow: none;
+  }
+}

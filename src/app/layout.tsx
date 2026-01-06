@@ -1,49 +1,53 @@
-import type { Metadata } from "next";
+import type {Metadata} from "next";
+
 import "./globals.css";
-
 import "@/styles/main.scss";
-
 import "overlayscrollbars/overlayscrollbars.css";
 
 import BootstrapClient from "./bootstrap-client";
-import { ThemeProvider } from "@/components/ThemeProvider";
-import { LightsCanvas } from "@/components/lights/LightsCanvas";
-import { SnowCanvas } from "@/components/snow/SnowCanvas";
+import {ThemeProvider} from "@/components/ThemeProvider";
+import {LightsCanvas} from "@/components/lights/LightsCanvas";
+import {SnowCanvas} from "@/components/snow/SnowCanvas";
+import LayoutHeightsFix from "@/components/LayoutHeightsFix";
 
-import OSInit from "./os-init";
-import { Navigation } from "@/components/Navigation";
-import { SiteFooter } from "@/components/SiteFooter";
+import {Navigation} from "@/components/Navigation";
+import {SiteFooter} from "@/components/SiteFooter";
+import ScrollArea from "@/components/ScrollArea";
 
 export const metadata: Metadata = {
     title: "lichtspiele.org",
     description: "Lichtspiele: Musik, Software und Nerd-Projekte.",
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({children}: { children: React.ReactNode }) {
     return (
-        <html lang="de" data-theme="studio" data-bs-theme="dark">
+        <html lang="de" data-theme="dark" data-bs-theme="dark">
         <body>
         <div className="fx" aria-hidden="true">
-            <LightsCanvas />
-            <SnowCanvas settings={{ flakes: 180, wind: 0.015, opacity: 0.8 }} />
-            <div className="grain" />
-            <div className="noise" />
+            <LightsCanvas/>
+            <SnowCanvas settings={{flakes: 180, wind: 0.015, opacity: 0.8}}/>
+            <div className="grain"/>
+            <div className="noise"/>
         </div>
 
         <ThemeProvider>
-            <Navigation />
+            <Navigation/>
 
-            {/* Scroll-Host für OverlayScrollbars */}
-            <div id="scrollRoot" className="os-host os-theme-dark">
-                <main className="container container-max px-3 px-md-4 py-4 py-md-5">
-                    {children}
-                    <SiteFooter />
+            <ScrollArea>
+                <main id="main">
+                    <div className="container container-max">{children}</div>
                 </main>
-            </div>
+
+                <footer id="site-footer" className="py-4">
+                    <div className="container">
+                        <SiteFooter/>
+                    </div>
+                </footer>
+            </ScrollArea>
         </ThemeProvider>
 
-        <BootstrapClient />
-        <OSInit />
+        <BootstrapClient/>
+        <LayoutHeightsFix/>
         </body>
         </html>
     );

@@ -1,11 +1,12 @@
 import React from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export type ExploreSectionCardProps = {
     title: string;
     description?: string;
 
     /** Icon als string (emoji, text, etc.) oder eigenes Node */
-    icon?: React.ReactNode;
+    iconClass?: React.ReactNode;
 
     href?: string;
     ctaText?: string;
@@ -19,7 +20,7 @@ export type ExploreSectionCardProps = {
 export function ExploreSectionCard({
                                        title,
                                        description,
-                                       icon,
+                                       iconClass,
                                        href = "#",
                                        ctaText = "Entdecken →",
                                        shine = false,
@@ -30,13 +31,12 @@ export function ExploreSectionCard({
     return (
         <div className={"card glass-2 overflow-hidden h-100 " + (className ?? "")}>
             <div className={headerClass}>
-                {icon ? (
-                    <span>
-
-            {icon}
-                    </span>
-                ) : null}
-                <span className="fw-semibold fs-5">{title}</span>
+                <span className="fw-semibold fs-5">
+                                    {iconClass ? (
+                                        <i className={iconClass + " me-2"} aria-hidden="true" />
+                                    ) : null}
+                    {title}
+                </span>
             </div>
 
             <div className="card-body p-3 d-flex flex-column">
@@ -44,6 +44,7 @@ export function ExploreSectionCard({
 
                 <a className="btn btn-sm btn-outline-secondary w-100 mt-auto" href={href}>
                     {ctaText}
+                    <i className="ms-1 fa-solid fa-caret-right"></i>
                 </a>
             </div>
         </div>
